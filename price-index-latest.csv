@@ -1,0 +1,12 @@
+capacity_tb,cheapest_usd_per_tb,price_usd,drive,brand,interface,form_factor,new_hdd_listings_in_tier,listing_last_updated,snapshot_date
+4,23.8,95.18,HP 3.5-Inch 4000 GB Hot-Swap 2 MB Cache Internal Hard Drive 693687-B21,HP,SATA,"Internal 3.5""",250,2026-08-17T04:51:40.044789+00:00,2026-08-17
+6,26.33,158.0,HGST Ultrastar He 3.5-inch 6000GB 64MB Cache 7200RPM SATA Ultra 512n Helium Platform Enterprise HDD HUS726060ALA640,Western Digital,SATA,"Internal 3.5""",149,2026-08-17T01:14:52.533429+00:00,2026-08-17
+8,32.37,258.99,MDD MAXDIGITALDATA MaxDigitalData 8TB 7200 RPM 256MB Cache SATA 6.0Gb/s 3.5inch Internal Hard Drive for NAS Network Storage (MD8000GSA25672NAS),MDD MAXDIGITALDATA,SATA,"Internal 3.5""",150,2026-08-17T01:30:51.829766+00:00,2026-08-17
+10,28.3,283.0,Toshiba MG Series Enterprise 10TB 3.5’’ SATA 6Gbit/s Internal HDD 7200RPM 550TB/year 24/7 Operation. MG06ACA10TE,Toshiba,SATA,"Internal 3.5""",172,2026-08-17T04:55:39.500683+00:00,2026-08-17
+12,28.33,339.99,"HGST Ultrastar He12 | HUH721212ALE601 | 0F27454 | 12TB 7200 RPM 256MB SATA 6.0Gb/s 3.5"" Cache | 512E | BitLocker Hard Drive Encryption | Power Disable Function |",HGST,SATA,"Internal 3.5""",130,2026-08-17T04:57:22.236086+00:00,2026-08-17
+14,24.99,349.87,HP P09165-B21 Midline Helium - Hard Drive - 14 TB - Hot-Swap - 3.5 Inch Lff - SATA 6GB/S - 7200 RPM - with Low Profile Carrier,HP,SATA,"Internal 3.5""",85,2026-08-17T04:57:22.273175+00:00,2026-08-17
+16,34.48,551.73,Seagate IronWolf 16TB SATA 256Mb 7200Rpm,Seagate,SATA,"Internal 3.5""",111,2026-08-17T04:16:00.153617+00:00,2026-08-17
+18,30.5,549.0,"Water Panther 18TB 7200 RPM SATA 6Gb/s 3.5"" HDD for Dell PowerEdge Servers | Enterprise Hard Drive in 13G Tray | Compatible with T440 T630 T640 R630 R720 R720xd R730xd R730",Water Panther,SATA,"Internal 3.5""",32,2026-08-17T02:29:27.512255+00:00,2026-08-17
+20,31.0,619.99,"MDD MAXDIGITALDATA 20TB 7200 RPM 256MB Cache SATA 6.0Gb/s 3.5'' Internal Hard Drive (for NAS, Network Storage) - 5 Years Warranty",MDD MAXDIGITALDATA,SATA,"Internal 3.5""",37,2026-08-17T03:29:35.521342+00:00,2026-08-17
+22,32.26,709.82,"TOSHIBA N300 Internal Hard Drive 22 Tb 7200 RPM 512 Mb 3.5"", W129161818 (Tb 7200 RPM 512 Mb 3.5 Serial Ata Iii)",Toshiba,SATA,"Internal 3.5""",13,2026-08-17T01:08:29.288269+00:00,2026-08-17
+24,26.25,629.99,"Seagate Exos X24 24TB internal server Hard drive ST24000NM000C 3.5"" HDD SATA3 512MB 7200RPM",Seagate,SATA,"Internal 3.5""",21,2026-08-17T02:29:23.932858+00:00,2026-08-17
