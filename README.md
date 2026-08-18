@@ -11,11 +11,12 @@ repository is the downloadable, machine-readable companion to that page.
 The index answers one durable question — *"what is the actual cheapest way to buy a
 terabyte of new spinning disk right now, and is bigger really cheaper per TB?"* — and
 tracks how that answer moves over time. In the 2026 supply crunch the per-TB sweet
-spot is **not** the largest drive: on the 2026-08-17 snapshot, **4 TB leads at
-$23.80/TB** while **16 TB is the worst value at $34.48/TB**, and **14 TB ($24.99/TB)
-is ~38% cheaper per TB than 16 TB**. Those relationships shift week to week as
-individual models go on and off sale, which is exactly why this is published as a
-dated, self-updating index rather than a one-off article.
+spot is **not** the largest drive: on the 2026-08-18 snapshot, **4 TB leads at
+$23.80/TB** while **16 TB is the worst value at $35.69/TB** — a **33% best-to-worst
+spread** — and **14 TB ($24.99/TB) is ~30% cheaper per TB than 16 TB**. (These
+figures move daily as individual models go on and off sale — `price-index-latest.csv`
+always holds the current numbers.) That volatility is exactly why this is published as
+a dated, self-updating index rather than a one-off article.
 
 All files download directly, no login or purchase required. Free to reuse under
 [CC BY 4.0](./LICENSE) with attribution to [HDDHunt](https://hddhunt.com/).
