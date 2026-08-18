@@ -78,6 +78,18 @@ All files download directly, no login or purchase required. Free to reuse under
 - Coverage is Amazon.com (US) only.
 - This is descriptive market data, not purchasing advice.
 
+## Cite this dataset
+
+Machine-readable citation metadata is provided in
+[`CITATION.cff`](./CITATION.cff) — GitHub renders a **"Cite this repository"**
+button from it. A permanent, versioned DOI (via Zenodo's GitHub-release archiving)
+is being minted; once live it will appear here as a badge and in `CITATION.cff`.
+
+Suggested attribution:
+
+> HDDHunt. *HDD Price Index — cheapest new internal 3.5" SATA HDD price per TB
+> (USD/TB), Amazon US.* https://hddhunt.com/cheapest-hdd-per-tb/
+
 ## License
 
 [Creative Commons Attribution 4.0 International (CC BY 4.0)](./LICENSE). You may share

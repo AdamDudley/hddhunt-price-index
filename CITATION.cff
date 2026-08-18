@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+title: >-
+  HDD Price Index — cheapest new internal 3.5" SATA HDD
+  price per terabyte (USD/TB), Amazon US
+message: >-
+  If you use this dataset, please cite it using the metadata
+  below.
+type: dataset
+authors:
+  - name: HDDHunt
+    website: 'https://hddhunt.com/'
+abstract: >-
+  An open, daily-refreshed dataset tracking the cheapest new,
+  internal 3.5" SATA hard-drive price per terabyte (USD/TB) at
+  each capacity tier (4–24 TB) on Amazon.com (US), with an
+  append-only daily time series of the full per-tier $/TB curve.
+  Machine-readable companion to the live index at
+  https://hddhunt.com/cheapest-hdd-per-tb/.
+url: 'https://hddhunt.com/cheapest-hdd-per-tb/'
+repository-code: 'https://github.com/AdamDudley/hddhunt-price-index'
+license: CC-BY-4.0
+keywords:
+  - hard drive
+  - HDD
+  - price per terabyte
+  - USD per TB
+  - storage economics
+  - data hoarding
+  - homelab
+  - NAS
+  - Amazon US
+  - price index
+  - time series
+  - open data

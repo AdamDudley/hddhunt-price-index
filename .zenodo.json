@@ -1,0 +1,44 @@
+{
+  "title": "HDD Price Index — cheapest new internal 3.5\" SATA HDD price per terabyte (USD/TB) by capacity tier, Amazon US, daily time series",
+  "upload_type": "dataset",
+  "access_right": "open",
+  "license": "CC-BY-4.0",
+  "description": "<p>An open, daily-refreshed dataset tracking the <strong>cheapest new, internal 3.5&quot; SATA hard-drive price per terabyte (USD/TB)</strong> at each capacity tier (4&ndash;24 TB) on Amazon.com (US). For each snapshot and each tier the index records the single cheapest qualifying new internal 3.5&quot; SATA drive by $/TB, plus an append-only daily time series of the full per-tier curve.</p><p>This dataset is the downloadable, machine-readable companion to the live index published at <a href=\"https://hddhunt.com/cheapest-hdd-per-tb/\">HDDHunt &mdash; Cheapest HDD per TB (https://hddhunt.com/cheapest-hdd-per-tb/)</a>, where the always-current table, methodology and reproducibility query are maintained. Source repository: <a href=\"https://github.com/AdamDudley/hddhunt-price-index\">github.com/AdamDudley/hddhunt-price-index</a>. Files are CSV + JSON/JSONL and download directly with no login. Free to reuse under CC BY 4.0 with attribution to <a href=\"https://hddhunt.com/\">HDDHunt (https://hddhunt.com/)</a>.</p>",
+  "creators": [
+    {
+      "name": "HDDHunt",
+      "affiliation": "hddhunt.com"
+    }
+  ],
+  "keywords": [
+    "hard drive",
+    "HDD",
+    "price per terabyte",
+    "USD per TB",
+    "storage economics",
+    "data hoarding",
+    "homelab",
+    "NAS",
+    "Amazon US",
+    "price index",
+    "time series",
+    "open data"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://hddhunt.com/cheapest-hdd-per-tb/",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://github.com/AdamDudley/hddhunt-price-index",
+      "relation": "isDerivedFrom",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://hddhunt.com/",
+      "relation": "references",
+      "scheme": "url"
+    }
+  ]
+}
