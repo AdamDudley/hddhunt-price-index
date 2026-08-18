@@ -55,12 +55,17 @@ All files download directly, no login or purchase required. Free to reuse under
 - **Tiering:** listings are bucketed into nominal capacity tiers (4, 6, 8, 10, 12,
   14, 16, 18, 20, 22, 24 TB). For each tier the index records the single cheapest
   qualifying drive by `$/TB`.
-- **Cadence:** refreshed on a **daily** accrual cadence; `price-index-latest.csv`
-  tracks the newest snapshot and `price-index-timeseries.jsonl` accumulates the
-  history.
-- **Reproducibility (verify it yourself):** the underlying listings are exposed
-  through a **public, no-auth PostgREST API**. For any tier T (e.g. 16 TB), the
-  cheapest new internal 3.5" SATA HDD is:
+- **Cadence:** refreshed on a **daily** accrual cadence by a scheduled job
+  ([`.github/workflows/daily-snapshot.yml`](./.github/workflows/daily-snapshot.yml)
+  running [`scripts/generate-snapshot.py`](./scripts/generate-snapshot.py) against
+  the public API each morning UTC); `price-index-latest.csv` tracks the newest
+  snapshot and `price-index-timeseries.jsonl` accumulates the history. The job is
+  idempotent and refuses to write a partial or implausible snapshot, so the
+  published series is never corrupted by an upstream glitch.
+- **Reproducibility (verify it yourself):** the exact generation code is in this
+  repo ([`scripts/generate-snapshot.py`](./scripts/generate-snapshot.py)) and the
+  underlying listings are exposed through a **public, no-auth PostgREST API**. For
+  any tier T (e.g. 16 TB), the cheapest new internal 3.5" SATA HDD is:
 
   ```bash
   curl -s -H 'Range: 0-49' \
