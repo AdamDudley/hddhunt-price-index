@@ -3,6 +3,11 @@
 An open dataset tracking the **cheapest new, internal 3.5" SATA hard drive price per
 terabyte (USD/TB)** at each capacity tier (4 TB – 24 TB) on Amazon.com (US).
 
+**Live index:** the always-current version, with the full per-TB-by-capacity table and
+methodology, is published at
+**[hddhunt.com/cheapest-hdd-per-tb](https://hddhunt.com/cheapest-hdd-per-tb/)**. This
+repository is the downloadable, machine-readable companion to that page.
+
 The index answers one durable question — *"what is the actual cheapest way to buy a
 terabyte of new spinning disk right now, and is bigger really cheaper per TB?"* — and
 tracks how that answer moves over time. In the 2026 supply crunch the per-TB sweet
