@@ -1,0 +1,57 @@
+# ---------------------------------------------------------------------------
+# INSTALL: move this file to .github/workflows/daily-snapshot.yml on the repo.
+# It is parked here because installing a workflow needs a token with the
+# `workflow` OAuth scope, which the automation account does not hold. Owner,
+# one-time, either:
+#   (a) grant the scope, then relocate:  gh auth refresh -h github.com -s workflow
+#       git mv scripts/daily-snapshot.workflow.yml .github/workflows/daily-snapshot.yml
+#       git commit -m 'Enable daily snapshot workflow' && git push
+#   or (b) create .github/workflows/daily-snapshot.yml through the GitHub web UI
+#       and paste the body below.
+# The generator it runs (scripts/generate-snapshot.py) is already in the repo and
+# is safe to run by hand any time:  python3 scripts/generate-snapshot.py
+# ---------------------------------------------------------------------------
+name: Daily price-index snapshot
+
+# Keeps the dataset's "Built daily" promise true without a human in the loop.
+# Reads the public, no-auth PostgREST API over the HDDHunt catalogue, regenerates
+# today's snapshot files, and commits them. Idempotent (a second run in the same
+# UTC day is a no-op) and self-guarding (aborts without writing if the upstream
+# data is missing or implausible), so an unattended run can never corrupt the
+# published citation dataset.
+
+on:
+  schedule:
+    # 08:10 UTC daily — after the catalogue's overnight refresh (picks carry
+    # last_updated ~05:30-07:00Z), matching the manual refresh cadence.
+    - cron: "10 8 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-snapshot
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate today's snapshot
+        run: python3 scripts/generate-snapshot.py
+
+      - name: Commit if the dataset changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet; then
+            echo "No dataset change today — nothing to commit."
+            exit 0
+          fi
+          DAY="$(date -u +%F)"
+          git add -A
+          git commit -m "Daily index: ${DAY} snapshot (automated)"
+          git push
