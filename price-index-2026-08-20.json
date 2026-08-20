@@ -1,0 +1,156 @@
+[
+  {
+    "tier": 4,
+    "pick": {
+      "name": "HP 3.5-Inch 4000 GB Hot-Swap 2 MB Cache Internal Hard Drive 693687-B21",
+      "brand": "HP",
+      "capacity_gb": 4000,
+      "price": 95.18,
+      "price_per_tb": 23.795,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-08-20T02:42:06.677304+00:00"
+    },
+    "tier_new_hdd_listings": "284"
+  },
+  {
+    "tier": 6,
+    "pick": {
+      "name": "HGST Ultrastar He 3.5-inch 6000GB 64MB Cache 7200RPM SATA Ultra 512n Helium Platform Enterprise HDD HUS726060ALA640",
+      "brand": "Western Digital",
+      "capacity_gb": 6000,
+      "price": 156.0,
+      "price_per_tb": 26.0,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-08-20T03:14:27.052496+00:00"
+    },
+    "tier_new_hdd_listings": "192"
+  },
+  {
+    "tier": 8,
+    "pick": {
+      "name": "MDD MAXDIGITALDATA MaxDigitalData 8TB 7200 RPM 256MB Cache SATA 6.0Gb/s 3.5inch Internal Hard Drive for NAS Network Storage (MD8000GSA25672NAS)",
+      "brand": "MDD MAXDIGITALDATA",
+      "capacity_gb": 8000,
+      "price": 259.99,
+      "price_per_tb": 32.49875,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-08-20T03:30:28.279248+00:00"
+    },
+    "tier_new_hdd_listings": "252"
+  },
+  {
+    "tier": 10,
+    "pick": {
+      "name": "Toshiba MG Series Enterprise 10TB 3.5\u2019\u2019 SATA 6Gbit/s Internal HDD 7200RPM 550TB/year 24/7 Operation. MG06ACA10TE",
+      "brand": "Toshiba",
+      "capacity_gb": 10000,
+      "price": 283.0,
+      "price_per_tb": 28.3,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-08-20T03:49:27.908838+00:00"
+    },
+    "tier_new_hdd_listings": "186"
+  },
+  {
+    "tier": 12,
+    "pick": {
+      "name": "HGST Ultrastar He12 | HUH721212ALE601 | 0F27454 | 12TB 7200 RPM 256MB SATA 6.0Gb/s 3.5\" Cache | 512E | BitLocker Hard Drive Encryption | Power Disable Function |",
+      "brand": "HGST",
+      "capacity_gb": 12000,
+      "price": 339.99,
+      "price_per_tb": 28.3325,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-08-20T02:35:14.119451+00:00"
+    },
+    "tier_new_hdd_listings": "146"
+  },
+  {
+    "tier": 14,
+    "pick": {
+      "name": "TFGAJKKKKK 3.5\" HDD 14TB (CMR) MN07ACA14T /JP 7,200rpm SATA 24x7 RV Sensor Helium-Filled HDD with Japan Support and Simultaneous Replacement in The Event of a Failure",
+      "brand": "TFGAJKKKKK",
+      "capacity_gb": 14000,
+      "price": 425.17,
+      "price_per_tb": 30.369285714285713,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-08-20T00:16:22.718306+00:00"
+    },
+    "tier_new_hdd_listings": "93"
+  },
+  {
+    "tier": 16,
+    "pick": {
+      "name": "BUFFALO Replacement Spare Hard Drive 16TB NAS-Grade for TeraStation 2/4/8 Bay (OP-HD16.0N)",
+      "brand": "Buffalo",
+      "capacity_gb": 16000,
+      "price": 570.32,
+      "price_per_tb": 35.645,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-08-20T01:16:24.451844+00:00"
+    },
+    "tier_new_hdd_listings": "106"
+  },
+  {
+    "tier": 18,
+    "pick": {
+      "name": "Seagate Exos X18 ST18000NM001J 18 TB Hard Drive - Internal - SATA (SATA/600)",
+      "brand": "Seagate",
+      "capacity_gb": 18000,
+      "price": 499.0,
+      "price_per_tb": 27.72222222222222,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-08-20T03:30:46.910666+00:00"
+    },
+    "tier_new_hdd_listings": "37"
+  },
+  {
+    "tier": 20,
+    "pick": {
+      "name": "MDD MAXDIGITALDATA 20TB 7200 RPM 256MB Cache SATA 6.0Gb/s 3.5'' Internal Hard Drive (for NAS, Network Storage) - 5 Years Warranty",
+      "brand": "MDD MAXDIGITALDATA",
+      "capacity_gb": 20000,
+      "price": 499.99,
+      "price_per_tb": 24.9995,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-08-20T00:43:22.677756+00:00"
+    },
+    "tier_new_hdd_listings": "40"
+  },
+  {
+    "tier": 22,
+    "pick": {
+      "name": "TOSHIBA N300 Internal Hard Drive 22 Tb 7200 RPM 512 Mb 3.5\", W129161818 (Tb 7200 RPM 512 Mb 3.5 Serial Ata Iii)",
+      "brand": "Toshiba",
+      "capacity_gb": 22000,
+      "price": 699.0,
+      "price_per_tb": 31.772727272727273,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-08-20T01:30:10.41128+00:00"
+    },
+    "tier_new_hdd_listings": "15"
+  },
+  {
+    "tier": 24,
+    "pick": {
+      "name": "Seagate Exos X24 24TB internal server Hard drive ST24000NM000C 3.5\" HDD SATA3 512MB 7200RPM",
+      "brand": "Seagate",
+      "capacity_gb": 24000,
+      "price": 649.99,
+      "price_per_tb": 27.082916666666666,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-08-20T01:16:42.657856+00:00"
+    },
+    "tier_new_hdd_listings": "21"
+  }
+]
