@@ -8,15 +8,27 @@ methodology, is published at
 **[hddhunt.com/cheapest-hdd-per-tb](https://hddhunt.com/cheapest-hdd-per-tb/)**. This
 repository is the downloadable, machine-readable companion to that page.
 
-The index answers one durable question — *"what is the actual cheapest way to buy a
-terabyte of new spinning disk right now, and is bigger really cheaper per TB?"* — and
-tracks how that answer moves over time. In the 2026 supply crunch the per-TB sweet
-spot is **not** the largest drive: on the 2026-08-18 snapshot, **4 TB leads at
-$23.80/TB** while **16 TB is the worst value at $35.69/TB** — a **33% best-to-worst
-spread** — and **14 TB ($24.99/TB) is ~30% cheaper per TB than 16 TB**. (These
-figures move daily as individual models go on and off sale — `price-index-latest.csv`
-always holds the current numbers.) That volatility is exactly why this is published as
-a dated, self-updating index rather than a one-off article.
+Each capacity tier carries **two** `$/TB` figures, because they answer two different
+questions:
+
+- **`cheapest_usd_per_tb`** — the single lowest-priced qualifying listing right now.
+  This is *today's best deal*, and it is **volatile**: one discounted model going on
+  or off sale swings it sharply day to day, so which tier looks "cheapest" flips
+  around (on the 2026-08-20 snapshot 4 TB leads at $23.80/TB, but that is a single
+  deal, not a structural fact). Track the time series, not any one day, for this
+  number.
+- **`median_usd_per_tb`** — the median `$/TB` across *all* qualifying listings in the
+  tier. This is the **structural** figure, robust to any one discounted listing, and
+  it tells the durable story: per-TB cost is **high for small drives, falls with
+  capacity, and then flattens**. On 2026-08-20 the median runs from ~$63/TB at 4 TB
+  down to a plateau of **~$48/TB across 16–24 TB** (16 TB $58.97, 18 TB $43.71,
+  20 TB $49.55, 24 TB $45.00). The practical takeaway: **the median $/TB sweet spot
+  is ~16 TB and up — buying bigger than ~16 TB does not meaningfully lower your cost
+  per terabyte on the typical listing.**
+
+Publishing both — a volatile deal number and a stable structural number — is exactly
+why this is a dated, self-updating index rather than a one-off article.
+`price-index-latest.csv` always holds the current numbers.
 
 All files download directly, no login or purchase required. Free to reuse under
 [CC BY 4.0](./LICENSE) with attribution to [HDDHunt](https://hddhunt.com/).
@@ -28,14 +40,16 @@ All files download directly, no login or purchase required. Free to reuse under
 | `price-index-latest.csv` | Most recent snapshot — one row per capacity tier (the cheapest qualifying drive in that tier). Always points at the newest data. |
 | `price-index-YYYY-MM-DD.csv` | Dated, immutable copy of each snapshot. |
 | `price-index-YYYY-MM-DD.json` | Same snapshot with full per-pick detail (model, price, per-TB, listing timestamp, tier depth). |
-| `price-index-timeseries.jsonl` | Append-only daily time series — one JSON object per day, with the full per-tier `$/TB` curve. |
+| `price-index-timeseries.jsonl` | Append-only daily time series — one JSON object per day, with the full per-tier `$/TB` curve (both `per_tier` cheapest and `median_per_tier`, plus the `median_floor_16tb_plus_usd_per_tb` structural headline). |
 
 ## Columns (`*.csv`)
 
 | Column | Meaning |
 |---|---|
 | `capacity_tb` | Nominal drive capacity tier, in TB. |
-| `cheapest_usd_per_tb` | Cheapest qualifying drive's price ÷ capacity, USD per TB (rounded to 2dp). |
+| `cheapest_usd_per_tb` | Cheapest qualifying drive's price ÷ capacity, USD per TB (rounded to 2dp). Volatile day-to-day — a single deal, not a structural figure. |
+| `median_usd_per_tb` | **Median** `$/TB` across *all* qualifying listings in the tier (same universe as the cheapest pick). The structural, deal-noise-resistant metric. Added 2026-08-20; blank if a tier has fewer than 3 listings. |
+| `median_sample_n` | Number of qualifying listings the median was computed over. |
 | `price_usd` | List price of that cheapest drive, USD. |
 | `drive` | Full product title of the cheapest qualifying drive. |
 | `brand` | Manufacturer / brand. |
@@ -53,8 +67,12 @@ All files download directly, no login or purchase required. Free to reuse under
   USB externals are **excluded** so the per-TB number reflects a directly usable
   drive, not a shucking project or a data-centre-only part.
 - **Tiering:** listings are bucketed into nominal capacity tiers (4, 6, 8, 10, 12,
-  14, 16, 18, 20, 22, 24 TB). For each tier the index records the single cheapest
-  qualifying drive by `$/TB`.
+  14, 16, 18, 20, 22, 24 TB). For each tier the index records two `$/TB` figures over
+  the **identical** qualifying universe: the single **cheapest** qualifying drive by
+  `$/TB`, and the **median** `$/TB` of every qualifying listing in that tier. The
+  cheapest is a volatile deal number; the median is the structural one (robust to any
+  single discounted listing). A tier needs at least 3 listings for a median to be
+  published; otherwise `median_usd_per_tb` is blank.
 - **Cadence:** refreshed on a **daily** accrual cadence by a scheduled job
   ([`.github/workflows/daily-snapshot.yml`](./.github/workflows/daily-snapshot.yml)
   running [`scripts/generate-snapshot.py`](./scripts/generate-snapshot.py) against
@@ -74,6 +92,12 @@ All files download directly, no login or purchase required. Free to reuse under
     --data-urlencode 'capacity_gb=lt.16640' \
     --data-urlencode 'order=price_per_tb.asc' -G | head
   ```
+
+  The **median** for the same tier is the median of `price_per_tb` over *all* rows in
+  that band (add `&form_factor=eq.Internal 3.5"&interface=eq.SATA`, page through with
+  `limit`/`offset`, drop values outside a sane `[5, 500]` window). The exact code that
+  does this — cheapest pick + median in one pass — is
+  [`scripts/generate-snapshot.py`](./scripts/generate-snapshot.py).
 
 ## Caveats
 

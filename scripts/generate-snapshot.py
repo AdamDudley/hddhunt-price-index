@@ -10,29 +10,44 @@ catalogue and (re)writes, for the current UTC day:
   - price-index-latest.csv        copy of today's CSV (always the newest)
   - price-index-timeseries.jsonl  append-only, one compact record per day
 
+Each tier carries TWO $/TB metrics over the identical qualifying universe:
+  - cheapest_usd_per_tb : the single lowest $/TB listing (a deal, volatile day-to-day)
+  - median_usd_per_tb   : the median $/TB across ALL qualifying listings in the tier
+                          (a structural, deal-noise-resistant figure). Added 2026-08-20.
+
+The median is the more citable metric for a durable claim: it states the market
+floor ("~$48/TB is the practical floor for 16TB+ new SATA HDDs") rather than a
+single discounted listing that can vanish in 24h.
+
 Methodology (matches README.md exactly):
   Universe  : Amazon.com (US), condition=New, technology=HDD, interface=SATA,
               form_factor=Internal 3.5" (SAS/USB excluded — directly usable drives).
   Tiering   : nominal capacity tiers 4..24 TB; per tier the single cheapest
               qualifying drive by $/TB, using band [(T-1)*1024, (T+0.25)*1024) GB
               (the exact band documented in the README "verify it yourself" block).
+  Median    : the median of every qualifying drive's $/TB in that same band
+              (same universe as the cheapest pick), computed over sane values only.
   Tier depth: new_hdd_listings_in_tier = count of ALL new HDD in the band
               (index depth / how competitive the tier is).
 
 Safety:
-  - Idempotent: if today's date is already in the time series, does nothing.
+  - Idempotent: if today's date is already in the time series, does nothing
+    (unless FORCE=1, which re-generates and REPLACES today's record — used the
+    day the median series was introduced to seed it consistently with cheapest).
   - Validates every tier resolves to a sane $/TB before writing ANY file, so an
     upstream outage or malformed response never corrupts the published dataset.
 
 Usage:
   python3 scripts/generate-snapshot.py            # today (UTC)
   DATE=2026-08-18 python3 scripts/generate-snapshot.py   # override (testing)
+  FORCE=1 python3 scripts/generate-snapshot.py    # re-generate & replace today
 """
 
 import csv
 import io
 import json
 import os
+import statistics
 import sys
 import urllib.parse
 import urllib.request
@@ -46,6 +61,15 @@ REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # A qualifying $/TB below this or above this is treated as a data error and aborts
 # the run without writing anything (e.g. a fake-capacity scam or an upstream glitch).
 MIN_PPT, MAX_PPT = 5.0, 500.0
+
+# Minimum sane listings in a tier before we publish a median for it. Below this
+# the median is statistically meaningless, so we publish null (cheapest still ships).
+MIN_MEDIAN_SAMPLES = 3
+
+# Pull all qualifying $/TB values per tier in pages of this size (PostgREST caps
+# a single response, so the median needs pagination, not just the cheapest row).
+PAGE = 50
+MAX_OFFSET = 5000  # hard safety stop; no real tier is anywhere near this deep
 
 PICK_FILTERS = [
     ("marketplace", "eq.amazon.com"),
@@ -86,6 +110,39 @@ def fetch_pick(tier):
     return rows[0] if rows else None
 
 
+def fetch_tier_ppt_values(tier):
+    """Every qualifying $/TB in the tier band (same universe as the cheapest pick),
+    clamped to the sane [MIN_PPT, MAX_PPT] window, returned sorted ascending."""
+    lo, hi = _band(tier)
+    vals = []
+    offset = 0
+    while offset <= MAX_OFFSET:
+        params = list(PICK_FILTERS) + [
+            ("capacity_gb", f"gte.{lo}"),
+            ("capacity_gb", f"lt.{hi}"),
+            ("order", "price_per_tb.asc"),
+            ("select", "price_per_tb"),
+            ("limit", str(PAGE)),
+            ("offset", str(offset)),
+        ]
+        _, body = _get(params, {})
+        chunk = json.loads(body)
+        if not chunk:
+            break
+        for row in chunk:
+            ppt = row.get("price_per_tb")
+            if ppt is None:
+                continue
+            ppt = float(ppt)
+            if MIN_PPT <= ppt <= MAX_PPT:
+                vals.append(ppt)
+        if len(chunk) < PAGE:
+            break
+        offset += PAGE
+    vals.sort()
+    return vals
+
+
 def fetch_tier_depth(tier):
     lo, hi = _band(tier)
     params = list(COUNT_FILTERS) + [
@@ -103,13 +160,18 @@ def fetch_tier_depth(tier):
 
 def main():
     day = os.environ.get("DATE") or datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    force = os.environ.get("FORCE") == "1"
 
     ts_path = os.path.join(REPO_ROOT, "price-index-timeseries.jsonl")
+    existing_lines = []
     if os.path.exists(ts_path):
         with open(ts_path, encoding="utf-8") as f:
-            if any(f'"date": "{day}"' in line for line in f):
-                print(f"price-index: {day} already recorded — nothing to do.", file=sys.stderr)
-                return 0
+            existing_lines = f.readlines()
+        already = any(f'"date": "{day}"' in line for line in existing_lines)
+        if already and not force:
+            print(f"price-index: {day} already recorded — nothing to do "
+                  f"(set FORCE=1 to re-generate).", file=sys.stderr)
+            return 0
 
     picks = []
     for tier in TIERS:
@@ -125,21 +187,28 @@ def main():
         if depth is None:
             print(f"ABORT: could not read tier depth for tier {tier} TB.", file=sys.stderr)
             return 1
-        picks.append((tier, pick, depth))
+        vals = fetch_tier_ppt_values(tier)
+        if len(vals) >= MIN_MEDIAN_SAMPLES:
+            median = round(statistics.median(vals), 2)
+        else:
+            median = None  # too few listings for a meaningful median; cheapest still ships
+        picks.append((tier, pick, depth, median, len(vals)))
 
     # --- dated CSV + latest CSV ---
     header = [
-        "capacity_tb", "cheapest_usd_per_tb", "price_usd", "drive", "brand",
-        "interface", "form_factor", "new_hdd_listings_in_tier",
-        "listing_last_updated", "snapshot_date",
+        "capacity_tb", "cheapest_usd_per_tb", "median_usd_per_tb", "median_sample_n",
+        "price_usd", "drive", "brand", "interface", "form_factor",
+        "new_hdd_listings_in_tier", "listing_last_updated", "snapshot_date",
     ]
     buf = io.StringIO()
     w = csv.writer(buf, lineterminator="\n")
     w.writerow(header)
-    for tier, pick, depth in picks:
+    for tier, pick, depth, median, msn in picks:
         w.writerow([
             tier,
             round(float(pick["price_per_tb"]), 2),
+            "" if median is None else median,
+            msn,
             pick["price"],
             pick["name"],
             pick["brand"],
@@ -157,7 +226,7 @@ def main():
 
     # --- dated JSON (full per-pick detail) ---
     detail = []
-    for tier, pick, depth in picks:
+    for tier, pick, depth, median, msn in picks:
         detail.append({
             "tier": tier,
             "pick": {
@@ -171,16 +240,23 @@ def main():
                 "last_updated": pick["last_updated"],
             },
             "tier_new_hdd_listings": str(depth),
+            "tier_median_price_per_tb": median,
+            "tier_median_sample_n": msn,
         })
     with open(os.path.join(REPO_ROOT, f"price-index-{day}.json"), "w", encoding="utf-8") as f:
         json.dump(detail, f, indent=2)
         f.write("\n")
 
     # --- append to time series ---
-    per_tier = {str(tier): round(float(pick["price_per_tb"]), 2) for tier, pick, _ in picks}
+    per_tier = {str(tier): round(float(pick["price_per_tb"]), 2) for tier, pick, _, _, _ in picks}
+    median_per_tier = {str(tier): median for tier, _, _, median, _ in picks}
+    median_n_per_tier = {str(tier): msn for tier, _, _, _, msn in picks}
     vals = {int(k): v for k, v in per_tier.items()}
     cheapest_tier = min(vals, key=vals.get)
     dearest_tier = max(vals, key=vals.get)
+    # Structural floor for large drives = median of the per-tier medians for 16TB+.
+    big_medians = [median for tier, _, _, median, _ in picks if tier >= 16 and median is not None]
+    median_floor_16tb_plus = round(statistics.median(big_medians), 2) if big_medians else None
     rec = {
         "date": day,
         "metric": METRIC,
@@ -189,13 +265,21 @@ def main():
         "cheapest_usd_per_tb": vals[cheapest_tier],
         "dearest_tier_tb": dearest_tier,
         "dearest_usd_per_tb": vals[dearest_tier],
+        "median_per_tier": median_per_tier,
+        "median_sample_n_per_tier": median_n_per_tier,
+        "median_floor_16tb_plus_usd_per_tb": median_floor_16tb_plus,
     }
-    with open(ts_path, "a", encoding="utf-8") as f:
-        f.write(json.dumps(rec) + "\n")
+    # Replace today's line if it already exists (FORCE re-run), else append.
+    new_line = json.dumps(rec) + "\n"
+    kept = [ln for ln in existing_lines if f'"date": "{day}"' not in ln]
+    with open(ts_path, "w", encoding="utf-8") as f:
+        f.writelines(kept)
+        f.write(new_line)
 
     print(f"price-index: wrote snapshot for {day} "
           f"(cheapest {cheapest_tier}TB ${vals[cheapest_tier]}/TB, "
-          f"dearest {dearest_tier}TB ${vals[dearest_tier]}/TB).", file=sys.stderr)
+          f"dearest {dearest_tier}TB ${vals[dearest_tier]}/TB, "
+          f"16TB+ median floor ${median_floor_16tb_plus}/TB).", file=sys.stderr)
     return 0
 
 
