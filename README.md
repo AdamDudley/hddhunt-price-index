@@ -73,6 +73,16 @@ All files download directly, no login or purchase required. Free to reuse under
   cheapest is a volatile deal number; the median is the structural one (robust to any
   single discounted listing). A tier needs at least 3 listings for a median to be
   published; otherwise `median_usd_per_tb` is blank.
+- **Fake-capacity scam guard (since 2026-08-27):** marketplace filters cannot catch
+  a mislabelled listing — a drive sold as "24 TB" that is physically ~8 TB passes
+  every filter and would otherwise land as a bogus sub-$20/TB "floor". Before
+  recording a tier's cheapest, the generator fetches the cheapest ~12 listings, takes
+  the median of their `$/TB` as a robust reference, and keeps the cheapest listing
+  that is **≥ 65 %** of that median; anything ~50-65 % below the cluster is treated as
+  a fake-capacity artifact, skipped, and logged. Genuine deals within ~35 % of the
+  cluster are unaffected. (Snapshots dated **before 2026-08-27** predate this guard,
+  so the `cheapest_usd_per_tb` for a few tiers on those days may include an unfiltered
+  mislabelled listing; the `median_usd_per_tb` figures are unaffected.)
 - **Cadence:** refreshed on a **daily** accrual cadence by a scheduled job
   ([`.github/workflows/daily-snapshot.yml`](./.github/workflows/daily-snapshot.yml)
   running [`scripts/generate-snapshot.py`](./scripts/generate-snapshot.py) against

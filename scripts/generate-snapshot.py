@@ -97,17 +97,46 @@ def _get(params, headers):
         return resp, resp.read()
 
 
+# Fake-capacity scam guard (added 2026-08-27; mirrors the private
+# tools/price-index-snapshot.sh guard applied 2026-08-25). The server-side filters
+# (form_factor / interface / condition) do NOT catch mislabelled listings — a drive
+# sold as "24TB" that is physically ~8TB passes every filter and lands as a bogus
+# sub-$20/TB "floor". We fetch the cheapest ~12 rows, take the median of their $/TB
+# as a robust reference, and pick the cheapest row that is >= 65% of that median.
+# Genuine deals (within ~35% of the cluster) are kept; fake-capacity artifacts
+# (~50-65% below the cluster) are skipped and logged. This preserves "cheapest $/TB"
+# semantics — only implausible scam floors are dropped.
+GUARD_SAMPLE = 12
+GUARD_RATIO = 0.65
+
+
 def fetch_pick(tier):
+    """Cheapest qualifying drive in the tier, after the fake-capacity scam guard."""
     lo, hi = _band(tier)
     params = list(PICK_FILTERS) + [
         ("capacity_gb", f"gte.{lo}"),
         ("capacity_gb", f"lt.{hi}"),
         ("order", "price_per_tb.asc"),
         ("select", "name,brand,capacity_gb,price,price_per_tb,form_factor,interface,last_updated"),
+        ("limit", str(GUARD_SAMPLE)),
     ]
-    _, body = _get(params, {"Range": "0-0"})
-    rows = json.loads(body)
-    return rows[0] if rows else None
+    _, body = _get(params, {})
+    rows = [r for r in json.loads(body) if r.get("price_per_tb") is not None]
+    if not rows:
+        return None
+    if len(rows) < 3:
+        return rows[0]  # too few listings to judge plausibility — take the cheapest
+    ppts = [float(r["price_per_tb"]) for r in rows]
+    ref = statistics.median(ppts)  # robust to 1-3 deep fake-capacity outliers
+    floor_min = GUARD_RATIO * ref
+    picked = next((r for r in rows if float(r["price_per_tb"]) >= floor_min), rows[0])
+    dropped = [round(p, 2) for p in ppts if p < floor_min]
+    if dropped:
+        print("price-index: tier %dTB SCAM-GUARD dropped %s (< %.2f = %.0f%% of "
+              "cheapest-%d median %.2f); floor=%.2f"
+              % (tier, dropped, floor_min, GUARD_RATIO * 100, GUARD_SAMPLE, ref,
+                 float(picked["price_per_tb"])), file=sys.stderr)
+    return picked
 
 
 def fetch_tier_ppt_values(tier):
