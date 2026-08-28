@@ -8,10 +8,14 @@ methodology, is published at
 **[hddhunt.com/cheapest-hdd-per-tb](https://hddhunt.com/cheapest-hdd-per-tb/)**. This
 repository is the downloadable, machine-readable companion to that page.
 
-**At a glance** — this chart is rendered live from the same source data, so it always
-shows the current numbers (it is not a static screenshot):
+**At a glance** — a live, self-updating card of the lowest `$/TB` listings on the
+site right now, rendered fresh from HDDHunt's daily snapshot (it is not a static
+screenshot). Note this card is a *cheapest-deal ranking* across capacities and shows
+**each row's condition** (some entries may be **refurbished**), so it is a broader,
+more volatile view than this repository's dataset, which is filtered to **new** drives
+and organised **by capacity tier**:
 
-[![Cheapest new internal 3.5" SATA HDD price per terabyte, by capacity tier — live from HDDHunt](https://hddhunt.com/embed/cheapest-hdd-per-tb.png)](https://hddhunt.com/cheapest-hdd-per-tb/)
+[![Live "Cheapest HDD per TB today" card — lowest $/TB listings on HDDHunt, condition-tagged](https://hddhunt.com/embed/cheapest-hdd-per-tb.png)](https://hddhunt.com/cheapest-hdd-per-tb/)
 
 Each capacity tier carries **two** `$/TB` figures, because they answer two different
 questions:
