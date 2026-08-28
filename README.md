@@ -8,6 +8,11 @@ methodology, is published at
 **[hddhunt.com/cheapest-hdd-per-tb](https://hddhunt.com/cheapest-hdd-per-tb/)**. This
 repository is the downloadable, machine-readable companion to that page.
 
+**At a glance** — this chart is rendered live from the same source data, so it always
+shows the current numbers (it is not a static screenshot):
+
+[![Cheapest new internal 3.5" SATA HDD price per terabyte, by capacity tier — live from HDDHunt](https://hddhunt.com/embed/cheapest-hdd-per-tb.png)](https://hddhunt.com/cheapest-hdd-per-tb/)
+
 Each capacity tier carries **two** `$/TB` figures, because they answer two different
 questions:
 
