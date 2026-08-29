@@ -1,0 +1,178 @@
+[
+  {
+    "tier": 4,
+    "pick": {
+      "name": "IBM 4 TB 3.5\" Internal Hard Drive",
+      "brand": "IBM",
+      "capacity_gb": 4000,
+      "price": 120.65,
+      "price_per_tb": 30.1625,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-08-29T19:07:18.861906+00:00"
+    },
+    "tier_new_hdd_listings": "307",
+    "tier_median_price_per_tb": 66.25,
+    "tier_median_sample_n": 129
+  },
+  {
+    "tier": 6,
+    "pick": {
+      "name": "HGST, a Western Digital Company Ultrastar 7K6000 6000GB 7200RPM SATA 512E Ultra ISE 128MB Cache 3.5-Inch Internal Bare or OEM Drives 0F23001",
+      "brand": "Western Digital",
+      "capacity_gb": 6000,
+      "price": 149.0,
+      "price_per_tb": 24.833333333333332,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-08-29T18:43:41.523538+00:00"
+    },
+    "tier_new_hdd_listings": "185",
+    "tier_median_price_per_tb": 69.84,
+    "tier_median_sample_n": 115
+  },
+  {
+    "tier": 8,
+    "pick": {
+      "name": "BUFFALO Replacement Spare Hard Drive 8TB NAS-Grade for TeraStation 2/4/8 Bay (OP-HD8.0N)",
+      "brand": "Buffalo",
+      "capacity_gb": 8000,
+      "price": 239.99,
+      "price_per_tb": 29.99875,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-08-29T20:56:38.326813+00:00"
+    },
+    "tier_new_hdd_listings": "256",
+    "tier_median_price_per_tb": 99.86,
+    "tier_median_sample_n": 140
+  },
+  {
+    "tier": 10,
+    "pick": {
+      "name": "Seagate ST10000NM0146 10TB SATA 6Gb s Enterprise HDD 7200RPM 256MB Helium 4Kn",
+      "brand": "Seagate",
+      "capacity_gb": 10000,
+      "price": 299.99,
+      "price_per_tb": 29.999,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-08-29T19:08:42.271682+00:00"
+    },
+    "tier_new_hdd_listings": "193",
+    "tier_median_price_per_tb": 64.94,
+    "tier_median_sample_n": 122
+  },
+  {
+    "tier": 12,
+    "pick": {
+      "name": "MDD MAXDIGITALDATA 12TB 7200 RPM 256MB Cache SATA 6.0Gb/s 3.5-inch Internal Hard Drive for Surveillance Storage (MD12TBGSA25672DVR) - 3 Years Warranty",
+      "brand": "MDD MAXDIGITALDATA",
+      "capacity_gb": 12000,
+      "price": 319.99,
+      "price_per_tb": 26.66583333333333,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-08-29T21:08:42.47045+00:00"
+    },
+    "tier_new_hdd_listings": "146",
+    "tier_median_price_per_tb": 61.33,
+    "tier_median_sample_n": 93
+  },
+  {
+    "tier": 14,
+    "pick": {
+      "name": "HP P09165-B21 Midline Helium - Hard Drive - 14 TB - Hot-Swap - 3.5 Inch Lff - SATA 6GB/S - 7200 RPM - with Low Profile Carrier",
+      "brand": "HP",
+      "capacity_gb": 14000,
+      "price": 458.0,
+      "price_per_tb": 32.714285714285715,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-08-29T21:26:35.371231+00:00"
+    },
+    "tier_new_hdd_listings": "100",
+    "tier_median_price_per_tb": 55.47,
+    "tier_median_sample_n": 72
+  },
+  {
+    "tier": 16,
+    "pick": {
+      "name": "BUFFALO Replacement Spare Hard Drive 16TB NAS-Grade for TeraStation 2/4/8 Bay (OP-HD16.0N)",
+      "brand": "Buffalo",
+      "capacity_gb": 16000,
+      "price": 570.32,
+      "price_per_tb": 35.645,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-08-29T21:49:41.696627+00:00"
+    },
+    "tier_new_hdd_listings": "113",
+    "tier_median_price_per_tb": 59.6,
+    "tier_median_sample_n": 76
+  },
+  {
+    "tier": 18,
+    "pick": {
+      "name": "Water Panther 18TB 7200 RPM SATA 6Gb/s 3.5\" HDD for Dell PowerEdge Servers | Enterprise Hard Drive in 14G Tray | Compatible with PER340 PER440 PER640 PER740",
+      "brand": "Water Panther",
+      "capacity_gb": 18000,
+      "price": 549.0,
+      "price_per_tb": 30.5,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-08-29T22:00:34.050126+00:00"
+    },
+    "tier_new_hdd_listings": "34",
+    "tier_median_price_per_tb": 45.54,
+    "tier_median_sample_n": 20
+  },
+  {
+    "tier": 20,
+    "pick": {
+      "name": "BUFFALO Replacement Spare Hard Drive 20TB NAS-Grade for TeraStation 2/4/8 Bay (OP-HD20.0N)",
+      "brand": "Buffalo",
+      "capacity_gb": 20000,
+      "price": 629.99,
+      "price_per_tb": 31.4995,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-08-29T21:59:44.009784+00:00"
+    },
+    "tier_new_hdd_listings": "47",
+    "tier_median_price_per_tb": 51.33,
+    "tier_median_sample_n": 28
+  },
+  {
+    "tier": 22,
+    "pick": {
+      "name": "Toshiba 22TB Enterprise Internal Hard Drive \u2013 MG Series 3.5\" SATA HDD for Server, Storage, 24/7 Operation, Hyperscale, Cloud (MG10AFA22TE)",
+      "brand": "Toshiba",
+      "capacity_gb": 22000,
+      "price": 795.99,
+      "price_per_tb": 36.181363636363635,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-08-29T18:08:31.779392+00:00"
+    },
+    "tier_new_hdd_listings": "17",
+    "tier_median_price_per_tb": 51.43,
+    "tier_median_sample_n": 7
+  },
+  {
+    "tier": 24,
+    "pick": {
+      "name": "Seagate Skyhawk AI 24TB Video Internal Hard Drive HDD \u2013 3.5 Inch SATA 6Gb/s 512MB Cache for DVR NVR Security Camera System with in-House Rescue Services (ST24000VE002)",
+      "brand": "Seagate",
+      "capacity_gb": 24000,
+      "price": 859.99,
+      "price_per_tb": 35.83291666666667,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-08-29T18:33:37.830188+00:00"
+    },
+    "tier_new_hdd_listings": "30",
+    "tier_median_price_per_tb": 46.12,
+    "tier_median_sample_n": 11
+  }
+]
