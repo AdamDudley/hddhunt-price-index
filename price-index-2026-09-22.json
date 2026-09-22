@@ -1,0 +1,178 @@
+[
+  {
+    "tier": 4,
+    "pick": {
+      "name": "Seagate 4TB 7200RPM HDD",
+      "brand": "Seagate",
+      "capacity_gb": 4000,
+      "price": 127.0,
+      "price_per_tb": 31.75,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-09-22T10:52:23.06861+00:00"
+    },
+    "tier_new_hdd_listings": "303",
+    "tier_median_price_per_tb": 62.74,
+    "tier_median_sample_n": 124
+  },
+  {
+    "tier": 6,
+    "pick": {
+      "name": "HGST Ultrastar He 3.5-inch 6000GB 64MB Cache 7200RPM SATA Ultra 512n Helium Platform Enterprise HDD HUS726060ALA640",
+      "brand": "Western Digital",
+      "capacity_gb": 6000,
+      "price": 156.0,
+      "price_per_tb": 26.0,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-09-22T09:15:12.859106+00:00"
+    },
+    "tier_new_hdd_listings": "195",
+    "tier_median_price_per_tb": 69.15,
+    "tier_median_sample_n": 118
+  },
+  {
+    "tier": 8,
+    "pick": {
+      "name": "BUFFALO Replacement Spare Hard Drive 8TB NAS-Grade for TeraStation 2/4/8 Bay (OP-HD8.0N)",
+      "brand": "Buffalo",
+      "capacity_gb": 8000,
+      "price": 239.99,
+      "price_per_tb": 29.99875,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-09-22T08:21:17.986046+00:00"
+    },
+    "tier_new_hdd_listings": "254",
+    "tier_median_price_per_tb": 109.0,
+    "tier_median_sample_n": 143
+  },
+  {
+    "tier": 10,
+    "pick": {
+      "name": "10TB 3.5\" 6Gbps 7.2K SATA Hard Drive RVFR2 HUH721010ALE600",
+      "brand": "Generic",
+      "capacity_gb": 10000,
+      "price": 303.05,
+      "price_per_tb": 30.305,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-09-22T08:02:01.112204+00:00"
+    },
+    "tier_new_hdd_listings": "184",
+    "tier_median_price_per_tb": 69.45,
+    "tier_median_sample_n": 114
+  },
+  {
+    "tier": 12,
+    "pick": {
+      "name": "HGST Ultrastar He12 | HUH721212ALE601 | 0F27454 | 12TB 7200 RPM 256MB SATA 6.0Gb/s 3.5\" Cache | 512E | BitLocker Hard Drive Encryption | Power Disable Function |",
+      "brand": "HGST",
+      "capacity_gb": 12000,
+      "price": 329.99,
+      "price_per_tb": 27.499166666666667,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-09-22T09:40:00.466366+00:00"
+    },
+    "tier_new_hdd_listings": "147",
+    "tier_median_price_per_tb": 61.33,
+    "tier_median_sample_n": 88
+  },
+  {
+    "tier": 14,
+    "pick": {
+      "name": "HP P09165-B21 Midline Helium - Hard Drive - 14 TB - Hot-Swap - 3.5 Inch Lff - SATA 6GB/S - 7200 RPM - with Low Profile Carrier",
+      "brand": "HP",
+      "capacity_gb": 14000,
+      "price": 458.0,
+      "price_per_tb": 32.714285714285715,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-09-22T08:39:31.669887+00:00"
+    },
+    "tier_new_hdd_listings": "102",
+    "tier_median_price_per_tb": 55.82,
+    "tier_median_sample_n": 71
+  },
+  {
+    "tier": 16,
+    "pick": {
+      "name": "BUFFALO Replacement Spare Hard Drive 16TB NAS-Grade for TeraStation 2/4/8 Bay (OP-HD16.0N)",
+      "brand": "Buffalo",
+      "capacity_gb": 16000,
+      "price": 580.99,
+      "price_per_tb": 36.311875,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-09-22T11:29:24.369204+00:00"
+    },
+    "tier_new_hdd_listings": "116",
+    "tier_median_price_per_tb": 57.69,
+    "tier_median_sample_n": 82
+  },
+  {
+    "tier": 18,
+    "pick": {
+      "name": "Water Panther 18TB 7200 RPM SATA 6Gb/s 3.5\" HDD for Dell PowerEdge Servers | Enterprise Hard Drive in 13G Tray | Compatible with T440 T630 T640 R630 R720 R720xd R730xd R730",
+      "brand": "Water Panther",
+      "capacity_gb": 18000,
+      "price": 589.0,
+      "price_per_tb": 32.72222222222222,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-09-22T11:48:18.390802+00:00"
+    },
+    "tier_new_hdd_listings": "44",
+    "tier_median_price_per_tb": 46.19,
+    "tier_median_sample_n": 26
+  },
+  {
+    "tier": 20,
+    "pick": {
+      "name": "BUFFALO Replacement Spare Hard Drive 20TB NAS-Grade for TeraStation 2/4/8 Bay (OP-HD20.0N)",
+      "brand": "Buffalo",
+      "capacity_gb": 20000,
+      "price": 698.99,
+      "price_per_tb": 34.9495,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-09-22T10:37:24.746047+00:00"
+    },
+    "tier_new_hdd_listings": "45",
+    "tier_median_price_per_tb": 52.38,
+    "tier_median_sample_n": 25
+  },
+  {
+    "tier": 22,
+    "pick": {
+      "name": "Toshiba 22TB Enterprise Internal Hard Drive \u2013 MG Series 3.5\" SATA HDD for Server, Storage, 24/7 Operation, Hyperscale, Cloud (MG10AFA22TE)",
+      "brand": "Toshiba",
+      "capacity_gb": 22000,
+      "price": 835.99,
+      "price_per_tb": 37.999545454545455,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-09-22T08:45:19.322903+00:00"
+    },
+    "tier_new_hdd_listings": "19",
+    "tier_median_price_per_tb": 53.64,
+    "tier_median_sample_n": 7
+  },
+  {
+    "tier": 24,
+    "pick": {
+      "name": "Seagate Exos X24 ST24000NM000C 24TB 7200RPM SATA 6Gb/s 512MB Cache CMR 3.5-Inch Enterprise Hard Drive",
+      "brand": "Seagate",
+      "capacity_gb": 24000,
+      "price": 799.99,
+      "price_per_tb": 33.33291666666667,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-09-22T10:21:21.049328+00:00"
+    },
+    "tier_new_hdd_listings": "33",
+    "tier_median_price_per_tb": 47.14,
+    "tier_median_sample_n": 12
+  }
+]
