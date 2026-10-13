@@ -1,0 +1,12 @@
+capacity_tb,cheapest_usd_per_tb,median_usd_per_tb,median_sample_n,price_usd,drive,brand,interface,form_factor,new_hdd_listings_in_tier,listing_last_updated,snapshot_date
+4,31.25,65.0,133,125.01,Seagate Exos 7E10 ST4000NM000B - Hard Drive - 4 TB - SATA 6Gb/s,Seagate,SATA,"Internal 3.5""",329,2026-10-13T08:22:24.575984+00:00,2026-10-13
+6,21.67,72.74,114,130.0,"HGST Ultrastar He6 6TB 3.5"" SATA 7200 RPM Enterprise Internal Hard Drive with 64Mb Cache - HUS726060ALA640/ 0F18335 64 MB Cache 3.5-Inch Internal Bare or OEM Drives 0F18335",HGST,SATA,"Internal 3.5""",195,2026-10-13T09:14:36.087796+00:00,2026-10-13
+8,34.41,99.86,148,275.24,BUFFALO Replacement Spare Hard Drive 8TB NAS-Grade for TeraStation 2/4/8 Bay (OP-HD8.0N),Buffalo,SATA,"Internal 3.5""",259,2026-10-13T08:16:10.06363+00:00,2026-10-13
+10,30.3,67.44,123,303.05,"10TB 3.5"" 6Gbps 7.2K SATA Hard Drive RVFR2 HUH721010ALE600",Generic,SATA,"Internal 3.5""",193,2026-10-13T09:52:19.653023+00:00,2026-10-13
+12,29.17,53.73,79,349.99,"MDD 12TB 7200RPM SATA 6Gb/s 256MB Cache 3.5inch Internal Desktop Hard Drive, MD12TBGSA25672",MDD,SATA,"Internal 3.5""",132,2026-10-13T08:22:35.465899+00:00,2026-10-13
+14,32.71,56.56,64,458.0,HP P09165-B21 Midline Helium - Hard Drive - 14 TB - Hot-Swap - 3.5 Inch Lff - SATA 6GB/S - 7200 RPM - with Low Profile Carrier,HP,SATA,"Internal 3.5""",94,2026-10-13T08:21:58.865688+00:00,2026-10-13
+16,36.84,60.37,68,589.45,DC HC550 16TB 512MB SATA Ultra SE NP3,Western Digital,SATA,"Internal 3.5""",101,2026-10-13T08:11:28.447786+00:00,2026-10-13
+18,35.83,46.06,22,645.0,"IMBXHZQ Compatible ST18000NM000J Exos X18 3.5"" 18TB SATA 6Gb 7.2K Enterprise Hard Drive",IMBXHZQ,SATA,"Internal 3.5""",38,2026-10-13T08:43:31.178292+00:00,2026-10-13
+20,32.0,51.17,22,639.99,"MDD MAXDIGITALDATA 20TB 7200 RPM 256MB Cache SATA 6.0Gb/s 3.5'' Internal Hard Drive (for NAS, Network Storage) - 5 Years Warranty",MDD MAXDIGITALDATA,SATA,"Internal 3.5""",49,2026-10-13T08:51:00.804342+00:00,2026-10-13
+22,37.95,51.08,8,834.81,"TOSHIBA N300 Internal Hard Drive 22 Tb 7200 RPM 512 Mb 3.5"", W129161818 (Tb 7200 RPM 512 Mb 3.5 Serial Ata Iii)",Toshiba,SATA,"Internal 3.5""",19,2026-10-13T09:18:35.887425+00:00,2026-10-13
+24,41.66,47.19,8,999.9,"Western Digital 24TB WD Red Pro NAS Internal Hard Drive HDD - 7200 RPM, SATA 6 Gb/s, CMR, 512 MB Cache, 3.5"" - WD240KFGX",Western Digital,SATA,"Internal 3.5""",26,2026-10-13T09:04:25.36484+00:00,2026-10-13
