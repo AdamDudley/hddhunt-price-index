@@ -1,0 +1,178 @@
+[
+  {
+    "tier": 4,
+    "pick": {
+      "name": "WD Black 4TB SATA 6.0 3.5\" Desktop HDD WD4003FZEX",
+      "brand": "Western Digital",
+      "capacity_gb": 4000,
+      "price": 130.0,
+      "price_per_tb": 32.5,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-10-30T10:58:29.072548+00:00"
+    },
+    "tier_new_hdd_listings": "312",
+    "tier_median_price_per_tb": 62.25,
+    "tier_median_sample_n": 125
+  },
+  {
+    "tier": 6,
+    "pick": {
+      "name": "HGST Ultrastar He6 6TB 3.5\" SATA 7200 RPM Enterprise Internal Hard Drive with 64Mb Cache - HUS726060ALA640/ 0F18335 64 MB Cache 3.5-Inch Internal Bare or OEM Drives 0F18335",
+      "brand": "HGST",
+      "capacity_gb": 6000,
+      "price": 135.0,
+      "price_per_tb": 22.5,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-10-30T09:21:37.68566+00:00"
+    },
+    "tier_new_hdd_listings": "186",
+    "tier_median_price_per_tb": 69.54,
+    "tier_median_sample_n": 118
+  },
+  {
+    "tier": 8,
+    "pick": {
+      "name": "Water Panther 8TB 7.2K RPM SATA 3.5\" HDD for Dell PowerEdge Servers | Enterprise Hard Drive in 13G Tray | Compatible with T05HP 400-AHID J6RTX 61V26",
+      "brand": "Water Panther",
+      "capacity_gb": 8000,
+      "price": 209.0,
+      "price_per_tb": 26.125,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-10-30T10:29:21.663702+00:00"
+    },
+    "tier_new_hdd_listings": "239",
+    "tier_median_price_per_tb": 85.28,
+    "tier_median_sample_n": 143
+  },
+  {
+    "tier": 10,
+    "pick": {
+      "name": "10TB 3.5\" 6Gbps 7.2K SATA Hard Drive RVFR2 HUH721010ALE600",
+      "brand": "Generic",
+      "capacity_gb": 10000,
+      "price": 303.05,
+      "price_per_tb": 30.305,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-10-30T10:11:53.911572+00:00"
+    },
+    "tier_new_hdd_listings": "172",
+    "tier_median_price_per_tb": 60.55,
+    "tier_median_sample_n": 111
+  },
+  {
+    "tier": 12,
+    "pick": {
+      "name": "C-HDD12T-PUR \u2013 12TB Surveillance Hard Drive",
+      "brand": "Generic",
+      "capacity_gb": 12000,
+      "price": 347.0,
+      "price_per_tb": 28.916666666666668,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-10-30T11:45:18.654139+00:00"
+    },
+    "tier_new_hdd_listings": "132",
+    "tier_median_price_per_tb": 52.62,
+    "tier_median_sample_n": 78
+  },
+  {
+    "tier": 14,
+    "pick": {
+      "name": "HP P09165-B21 Midline Helium - Hard Drive - 14 TB - Hot-Swap - 3.5 Inch Lff - SATA 6GB/S - 7200 RPM - with Low Profile Carrier",
+      "brand": "HP",
+      "capacity_gb": 14000,
+      "price": 458.0,
+      "price_per_tb": 32.714285714285715,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-10-30T09:26:19.899619+00:00"
+    },
+    "tier_new_hdd_listings": "95",
+    "tier_median_price_per_tb": 56.56,
+    "tier_median_sample_n": 68
+  },
+  {
+    "tier": 16,
+    "pick": {
+      "name": "Seagate IronWolf Pro ST16000NE000 16 TB Hard Drive - 3.5\" Internal - SATA (SATA/600), Mechanical Hard Disk",
+      "brand": "Seagate",
+      "capacity_gb": 16000,
+      "price": 557.46,
+      "price_per_tb": 34.84125,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-10-30T11:15:59.457148+00:00"
+    },
+    "tier_new_hdd_listings": "107",
+    "tier_median_price_per_tb": 59.94,
+    "tier_median_sample_n": 75
+  },
+  {
+    "tier": 18,
+    "pick": {
+      "name": "MDD (MDD18TSATA25672DVR) 18TB 7200RPM 256MB Cache SATA 6.0Gb/s 3.5inch Internal Surveillance Hard Drive - 3 Years Warranty",
+      "brand": "MDD MAXDIGITALDATA",
+      "capacity_gb": 18000,
+      "price": 549.99,
+      "price_per_tb": 30.555,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-10-30T12:58:25.471776+00:00"
+    },
+    "tier_new_hdd_listings": "44",
+    "tier_median_price_per_tb": 47.22,
+    "tier_median_sample_n": 25
+  },
+  {
+    "tier": 20,
+    "pick": {
+      "name": "MDD MAXDIGITALDATA 20TB 7200 RPM 256MB Cache SATA 6.0Gb/s 3.5'' Internal Hard Drive (for NAS, Network Storage) - 5 Years Warranty",
+      "brand": "MDD MAXDIGITALDATA",
+      "capacity_gb": 20000,
+      "price": 649.99,
+      "price_per_tb": 32.4995,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-10-30T09:37:07.150658+00:00"
+    },
+    "tier_new_hdd_listings": "45",
+    "tier_median_price_per_tb": 49.95,
+    "tier_median_sample_n": 24
+  },
+  {
+    "tier": 22,
+    "pick": {
+      "name": "TOSHIBA N300 Internal Hard Drive 22 Tb 7200 RPM 512 Mb 3.5\", W129161818 (Tb 7200 RPM 512 Mb 3.5 Serial Ata Iii)",
+      "brand": "Toshiba",
+      "capacity_gb": 22000,
+      "price": 831.0,
+      "price_per_tb": 37.77272727272727,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-10-30T12:44:16.213207+00:00"
+    },
+    "tier_new_hdd_listings": "22",
+    "tier_median_price_per_tb": 52.34,
+    "tier_median_sample_n": 8
+  },
+  {
+    "tier": 24,
+    "pick": {
+      "name": "Seagate IronWolf Pro 24TB Enterprise NAS Internal HDD Hard Drive \u2013 CMR 3.5 Inch SATA 6Gb/s 7200 RPM 512MB Cache for RAID Network Attached Storage, Rescue Services (ST24000NT002)",
+      "brand": "Seagate",
+      "capacity_gb": 24000,
+      "price": 1059.99,
+      "price_per_tb": 44.16625,
+      "form_factor": "Internal 3.5\"",
+      "interface": "SATA",
+      "last_updated": "2026-10-30T11:54:17.05693+00:00"
+    },
+    "tier_new_hdd_listings": "31",
+    "tier_median_price_per_tb": 55.66,
+    "tier_median_sample_n": 12
+  }
+]
