@@ -49,6 +49,8 @@ import json
 import os
 import statistics
 import sys
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
@@ -70,6 +72,16 @@ MIN_MEDIAN_SAMPLES = 3
 # a single response, so the median needs pagination, not just the cheapest row).
 PAGE = 50
 MAX_OFFSET = 5000  # hard safety stop; no real tier is anywhere near this deep
+
+# A full run fires ~35-100 sequential PostgREST requests (per tier: cheapest pick +
+# depth count + paginated median). Fired back-to-back with no spacing this now trips
+# the API's rate limiter (observed HTTP 429, 2026-11-13). REQ_SPACING paces requests
+# politely; _get retries 429/5xx with exponential backoff (honouring Retry-After) so
+# a transient throttle no longer loses the whole day's snapshot.
+REQ_SPACING = 0.35     # seconds between requests
+RETRY_STATUSES = {429, 500, 502, 503, 504}
+MAX_RETRIES = 5
+BACKOFF_BASE = 1.0     # seconds; doubled each retry
 
 PICK_FILTERS = [
     ("marketplace", "eq.amazon.com"),
@@ -93,8 +105,25 @@ def _band(tier):
 def _get(params, headers):
     url = BASE + "?" + urllib.parse.urlencode(params)
     req = urllib.request.Request(url, headers=headers)
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        return resp, resp.read()
+    attempt = 0
+    while True:
+        time.sleep(REQ_SPACING)
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                return resp, resp.read()
+        except urllib.error.HTTPError as e:
+            if e.code not in RETRY_STATUSES or attempt >= MAX_RETRIES:
+                raise
+            retry_after = e.headers.get("Retry-After") if e.headers else None
+            try:
+                wait = float(retry_after) if retry_after else 0.0
+            except ValueError:
+                wait = 0.0  # HTTP-date form; fall back to backoff
+            wait = max(wait, BACKOFF_BASE * (2 ** attempt))
+            attempt += 1
+            print(f"price-index: HTTP {e.code} — retry {attempt}/{MAX_RETRIES} "
+                  f"in {wait:.1f}s", file=sys.stderr)
+            time.sleep(wait)
 
 
 # Fake-capacity scam guard (added 2026-08-27; mirrors the private
